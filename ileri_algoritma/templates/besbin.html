@@ -1,0 +1,423 @@
+<!DOCTYPE HTML>
+{% load static i18n %}
+<html>
+<head>
+<meta charset="UTF-8">
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,700italic);
+
+*{margin: 0px; padding: 0px}
+
+body{
+  background:#2c3e50;
+  font-family: 'Open Sans', sans-serif;
+}
+
+h1, button{
+  color:#fff;
+  text-align: center;
+  padding: 20px;
+}
+
+p{
+  color:#fff;
+  text-align: center;
+  padding-top: 500px;
+  font-size: 10px;
+}
+
+a{
+   text-decoration:none;
+   color:#fff;
+}
+
+a:hover{
+   color:#2ecc71;
+}
+
+.main{
+  width: 100%;
+}
+
+.sub-main{
+  width: 15%;
+  margin:22px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+  float: left;
+}
+
+.button-one, .button-two, .button-three{
+  text-align: center;
+  cursor: pointer;
+  font-size:24px;
+  margin: 0 0 0 100px;
+}
+
+
+
+/*Button One*/
+.button-one {
+  padding:20px 60px;
+  outline: none;
+  background-color: #27ae60;
+  border: none;
+  border-radius:5px;
+  box-shadow: 0 9px #95a5a6;
+}
+
+.button-one:hover{
+  background-color: #2ecc71;
+}
+
+.button-one:active {
+  background-color: #2ecc71;
+  box-shadow: 0 5px #95a5a6;
+  transform: translateY(4px);
+}
+
+
+/*Button Two*/
+.button-two {
+  border-radius: 4px;
+  background-color:#d35400;
+  border: none;
+  padding: 20px;
+  width: 200px;
+  transition: all 0.5s;
+}
+
+
+.button-two span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button-two span:after {
+  content: '»';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button-two:hover span {
+  padding-right: 25px;
+}
+
+.button-two:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+
+/*Button Three*/
+.button-three {
+    position: relative;
+    background-color: #f39c12;
+    border: none;
+    padding: 20px;
+    width: 200px;
+    text-align: center;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    text-decoration: none;
+    overflow: hidden;
+}
+
+.button-three:hover{
+   background:#fff;
+   box-shadow:0px 2px 10px 5px #97B1BF;
+   color:#000;
+}
+
+.button-three:after {
+    content: "";
+    background: #f1c40f;
+    display: block;
+    position: absolute;
+    padding-top: 300%;
+    padding-left: 350%;
+    margin-left: -20px !important;
+    margin-top: -120%;
+    opacity: 0;
+    transition: all 0.8s
+}
+
+.button-three:active:after {
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    transition: 0s
+}
+    </style>
+    <style>
+        h2 {
+  text-align: center;
+}
+@media (max-width: 600px) {
+  h2 {
+    font-size: 18px;
+  }
+}
+p {
+  font-size: 18px;
+  font-weight: 700;
+  text-align: center;
+}
+@media (max-width: 600px) {
+  p {
+    font-size: 12px;
+  }
+}
+table {
+  display: table;
+  width: 80%;
+  margin: auto;
+  background-color: black;
+}
+tr {
+  background-color: #555;
+  border-collapse: none;
+}
+tr:nth-child(odd) {
+  background-color: #777;
+  border-collapse: none;
+}
+th {
+  width: 33.33%;
+  padding: 5px 10px;
+  background-color: #333;
+  color: #fff;
+}
+td {
+  width: 33.33%;
+  padding: 5px 10px;
+  text-align: center;
+}
+@media (max-width: 600px) {
+  table {
+    width: 80%;
+  }
+  th {
+    display: none;
+  }
+  td {
+    display: block;
+    width: 100%;
+    min-height: 40px;
+    border-bottom: 1px solid #000;
+  }
+}
+.select {
+  position: relative;
+  left: 50%;
+  transform: translatex(-50%);
+  width: 60px;
+  padding: 5px;
+  background-color: #fa7;
+  color: #000;
+  font-weight: 700;
+  border: 1px solid #000;
+  border-radius: 6px;
+  text-align: center;
+}
+.select:active {
+  background-color: #f96;
+}
+.details {
+  display: none;
+  width: 80%;
+  min-height: 85vh;
+  padding: 10px;
+  margin: 10px auto;
+  background-color: #d00;
+  border: 1px solid #000;
+  border-radius: 10px;
+  color: #fa0;
+}
+@media (max-width: 600px) {
+  .details {
+    width: 80%;
+  }
+}
+#close {
+  float: right;
+  display: block;
+  width: 100px;
+  height: 50px;
+  background: transparent;
+  border: 2px solid #fa0;
+  color: #fa0;
+  font-size: 20px;
+  font-weight: 700;
+}
+@media (max-width: 600px) {
+  #close {
+    width: 75px;
+    height: 35px;
+    font-size: 15px;
+    font-weight: 700;
+  }
+}
+.notes {
+  width: 500px;
+  margin: auto;
+  padding: 10px;
+  border: 1px solid #fa0;
+  font-size: 16px;
+}
+@media (max-width: 600px) {
+  .notes {
+    width: 90%;
+    font-size: 12px;
+  }
+  .notes h2 {
+    font-size: 18px;
+  }
+}
+
+    </style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+window.onload = function () {
+
+var chart = new CanvasJS.Chart("chartContainer", {
+	animationEnabled: true,
+	title:{
+		text: "Beş bin sayılık liste deneyi"
+	},
+	axisY:{
+		title: "Çalışma Süreleri",
+		interval: 1
+	},
+	toolTip: {
+		shared: true
+	},
+	data: [{
+			type: "bar",
+			name: "Avg. Score",
+			toolTipContent: "<b>{label}</b> <br> <span style='color:#4F81BC'>{name}</span>: {y}",
+			dataPoints: [
+				{ y: {{ insertion_sort_time_avg }}, label: "Insertion Sort Avg" },
+				{ y: {{ bubble_sort_time_avg }}, label: "Bubble Sort Avg" },
+				{ y: {{ quick_sort_time_avg }}, label: "Quick Sort Avg" },
+				{ y: {{ merge_sort_time_avg }}, label: "Merge Sort Avg" },
+			]
+		},
+		{
+			type: "error",
+			name: "Variability Range",
+			toolTipContent: "<span style='color:#C0504E'>{name}</span>: {y[0]} - {y[1]}",
+			dataPoints: [
+				{ y: [{{ insertion_sort_time_min }}, {{ insertion_sort_time_max }}], label: "Insertion Sort" },
+				{ y: [{{ bubble_sort_time_min }}, {{ bubble_sort_time_max }}], label: "Bubble Sort" },
+				{ y: [{{ quick_sort_time_min }}, {{ quick_sort_time_max }}], label: "Quick Sort" },
+				{ y: [{{ merge_sort_time_min }}, {{ merge_sort_time_max }}], label: "Merge Sort " },
+			]
+	}]
+});
+chart.render();
+
+$("#vs").click(function () {
+
+	var length = chart.options.data[0].dataPoints.length;
+	chart.options.title.text = "New DataPoint Added at the end";
+	chart.options.data[0].dataPoints.push({ y: 25 - Math.random() * 10});
+	chart.render();
+
+	});
+
+	$("#vsvs").click(function () {
+
+	var length = chart.options.data[0].dataPoints.length;
+	chart.options.title.text = "Last DataPoint Updated";
+	chart.options.data[0].dataPoints[length-1].y = 15 - Math.random() * 10;
+	chart.render();
+
+	});
+}
+</script>
+</head>
+<body>
+<div id="chartContainer" style="height: 370px; max-width: 920px; margin: 0px auto;"></div>
+<script src="{% static 'canvasjs.min.js' %}"></script>
+  <div class="main">
+    <div class="sub-main">
+      <button class="button-one" onclick="location.href = '/yuz'">100</button>
+    </div>
+    <div class="sub-main">
+      <button class="button-one" onclick="location.href = '/besyuz'">500</button>
+    </div>
+    <div class="sub-main">
+      <button class="button-one" onclick="location.href = '/bin'">1000</button>
+    </div>
+    <div class="sub-main">
+      <button class="button-one" onclick="location.href = '/besbin'">5000</button>
+    </div>
+    <div class="sub-main">
+      <button class="button-one" onclick="location.href = '/onbin'">10000</button>
+    </div>
+  </div>
+<table id="usertab">
+  <tr>
+    <th>Algoritma</th>
+    <th>Ortalama</th>
+    <th>Standart Sapma</th>
+      <th>Best Case</th>
+    <th>Worst Case</th>
+  </tr>
+  <tr>
+    <td>Insertion Sort</td>
+    <td>{{ insertion_sort_time_avg }}</td>
+    <td>{{ insertion_sort_time_stdev }}</td>
+    <td>{{ insertion_sort_time_best }}</td>
+    <td>{{ insertion_sort_time_worst }}</td>
+  </tr>
+  <tr>
+    <td>Bubble Sort</td>
+    <td>{{ bubble_sort_time_avg }}</td>
+    <td>{{ bubble_sort_time_stdev }}</td>
+    <td>{{ bubble_sort_time_best }}</td>
+    <td>{{ bubble_sort_time_worst }}</td>
+  </tr>
+  <tr>
+    <td>Quick sort</td>
+    <td>{{ quick_sort_time_avg }}</td>
+    <td>{{ quick_sort_time_stdev }}</td>
+    <td>{{ quick_sort_time_best }}</td>
+    <td>{{ quick_sort_time_worst }}</td>
+  </tr>
+  <tr>
+    <td>Merge Sort</td>
+    <td>{{ merge_sort_time_avg }}</td>
+    <td>{{ merge_sort_time_stdev }}</td>
+    <td>{{ merge_sort_time_best }}</td>
+    <td>{{ merge_sort_time_worst }}</td>
+  </tr>
+</table>
+<div class="details">
+  <button id="close">Close</button>
+  <br>
+  <br>
+  <h2>User Details</h2>
+  <p id="user"></p>
+  <h2>Email Address</h2>
+  <p id="email"></p>
+  <h2>City</h2>
+  <p id="city"></p>
+  <h2>Telephone</h2>
+  <p id="telephone"></p>
+  <h2>Last Updated</h2>
+  <p id="update"></p>
+  <div class="notes">
+    <h2>Notes</h2>
+    <p id="notes" style="font-weight: 400;"></p>
+  </div>
+</div>
+<script type="text/javascript" src="{% static 'main.js' %}"></script>
+</body>
+</html>
